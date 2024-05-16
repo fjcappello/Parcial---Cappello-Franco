@@ -3,10 +3,11 @@ import path from 'path';
 import { readJSONFile, writeJSONFile } from '../Utils/utils.js';
 
 const router = express.Router();
-const recetasPath = path.join('Data', 'recetas.json');
-const ingredientesPath = path.join('Data', 'ingredientes.json');
+const __dirname = path.resolve();
+const recetasPath = path.join(__dirname, 'Data', 'recetas.json');
+const ingredientesPath = path.join(__dirname, 'Data', 'ingredientes.json');
 
-
+//ENDPOINT POST PARA AGREGAR RECETAS : http://localhost:3000/api/agregarRecetas
 router.post('/agregarRecetas', async (req, res) => {
     try {
         const { nombre, descripcion, ingredientes } = req.body;
@@ -27,7 +28,7 @@ router.post('/agregarRecetas', async (req, res) => {
     }
 });
 
-
+// ENDPOINT GET PARA OBTENER INFORMACIÓN DE LAS RECETAS : http://localhost:3000/api/infoRecetas
 router.get('/infoRecetas', async (req, res) => {
     try {
         const recetas = await readJSONFile(recetasPath);
@@ -51,7 +52,7 @@ router.get('/infoRecetas', async (req, res) => {
     }
 });
 
-
+// ENDPOINT PUT PARA ACTUALIZAR RECETAS : http://localhost:3000/api/actualizarRecetas/:id
 router.put('/actualizarRecetas/:id', async (req, res) => {
     try {
         const { id } = req.params;

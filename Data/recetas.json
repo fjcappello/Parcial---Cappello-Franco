@@ -1,1 +1,12 @@
-[]
+[{
+    "id": 1,
+    "nombre": "Torta",
+    "descripcion": "Alta Torta",
+    "ingredientes": [
+      {
+        "id": 1,
+        "cantidad": "2 tazas"
+      }
+    ]
+  }
+  ]

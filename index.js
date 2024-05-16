@@ -11,5 +11,5 @@ app.use('/api', ingredientesRoutes);
 app.use('/api', recetasRoutes);
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server levantado en el puerto ${port}`);
 });

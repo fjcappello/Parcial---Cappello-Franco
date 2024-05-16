@@ -3,9 +3,10 @@ import path from 'path';
 import { readJSONFile, writeJSONFile } from '../Utils/utils.js';
 
 const router = express.Router();
-const ingredientesPath = path.join('Data', 'ingredientes.json');
-
-
+const __dirname = path.resolve();
+const ingredientesPath = path.join(__dirname, 'Data', 'ingredientes.json');
+ 
+// ENDPOINT POST PARA AGREGAR INGREDIENTES : http://localhost:3000/api/agregarIngredientes 
 router.post('/agregarIngredientes', async (req, res) => {
     try {
         const { nombre } = req.body;
@@ -26,6 +27,7 @@ router.post('/agregarIngredientes', async (req, res) => {
     }
 });
 
+// ENDPOINT GET PARA OBTENER INFORMACIÓN DE LOS INGREDIENTES : http://localhost:3000/api/infoIngredientes
 
 router.get('/infoIngredientes', async (req, res) => {
     try {
